@@ -18,7 +18,7 @@ Toolchains
 Minimal toolchains
 
 ```bash
-# tx86_64-linux-gnu toolchain (for OSX)
+# x86_64-linux-gnu toolchain (for OSX)
 docker run --rm -it -v $(pwd):/work -w /work amd64/ubuntu:20.04 bash
 # in the docker
 apt update
@@ -27,7 +27,7 @@ tar czvf x86_64-linux-gnu.tgz /lib /usr/include /usr/lib/gcc /usr/lib/*linux* /u
 ```
 
 ```bash
-# arm-linux toolchain
+# arm-linux-gnueabihf toolchain
 docker run --rm -it -v $(pwd):/work -w /work arm32v7/ubuntu:20.04 bash
 # in the docker
 apt update
@@ -39,11 +39,11 @@ Test build example
 ------------------
 
 ```bash
-# ELF 64-bit x86_64 Linux
+# ELF 32-bit ARM Linux
 clang --sysroot /path_to/toolchain/arm-linux-gnueabihf -target arm-linux-gnueabihf -fuse-ld=lld -o hello-arm -v hello.c
 file helllo-arm
 
-# ELF 32-bit ARM Linux
+# ELF 64-bit x86_64 Linux
 clang --sysroot /path_to/toolchain/x86_64-linux-gnu -target x86_64-linux-gnu -fuse-ld=lld -o hello-lin -v hello.c
 file helllo-lin
 ```
