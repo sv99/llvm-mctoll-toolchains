@@ -1,0 +1,4 @@
+arm-linux-gnueabihf/
+x86_64-linux-gnu/
+
+*.swp
